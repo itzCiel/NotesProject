@@ -1,0 +1,22 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+@model List<Note>
+<div class="text-center">
+    <h1 class="display-4">Welcome to Notes</h1>
+    <p> <a asp-action="Index" asp-controller="Notes" class="btn btn-success" style="font-weight:bolder;font-size:large">View All Notes</a></p>
+</div>
+
+@if(Model.Any()){
+    <div style="" class="">
+        <h5 style="margin-left:13px">Recently Accessed Notes.</h5>
+        <div class="d-flex flex-row">
+            @foreach (var n in Model)
+            {
+                <div class="col-md-3">
+                    <partial name="_RecentNoteCardPartial" model="n" />
+                </div>
+            }
+        </div>
+    </div>
+}

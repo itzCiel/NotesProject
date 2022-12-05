@@ -1,0 +1,23 @@
+﻿@model IEnumerable<NotesProject.Models.Note>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1 class="mb-3">My Notes</h1>
+
+<p>
+    <a class="btn btn-primary" asp-action="Create"><i class="fas fa-plus"></i> Create New</a>
+</p>
+
+@if(!Model.Any()){
+    <h5 class="text-center">No Notes</h5>
+}
+<div class="row">
+    @foreach (var n in Model)
+    {
+        <div class="col-md-3">
+            <partial name="_NoteCardPartial" model="n" />
+        </div>
+    }
+</div>

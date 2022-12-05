@@ -1,0 +1,18 @@
+﻿@model NotesProject.Models.Note
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Delete</h1>
+
+<h3>Are you sure you want to permanently delete <span class="text-info">@Model.Title </span> ?</h3>
+<h4 class="text-muted">This action cannot be reversed.</h4>
+
+<div>    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" value="Confirm" class="btn btn-danger" /> |
+        <a asp-action="RecycleBin">Back to List</a>
+    </form>
+</div>

@@ -1,0 +1,16 @@
+﻿@model Note
+<div class="card">
+    <div class="card-header" >
+        <h5 class="card-title mb-0">@Model.Title.ReduceLength(20)</h5>
+        <span class="text-muted">@Model.CreatedOn.ToString("ddd MM, yyyy - hh:mm tt")</span>
+    </div>
+    <div class="card-body" style="height:150px; overflow:hidden">
+        <p>@Model.Content.ReduceLength(100)</p>
+    </div>
+    <div class="card-footer">
+        <a class="btn btn-info" title="Edit Note" asp-controller="Notes" asp-action="Edit" asp-route-id="@Model.Id"><i class="fas fa-edit text-white"></i></a>
+        <a class="btn btn-danger" title="Move to Recycle Bin" asp-controller="Notes" asp-action="MoveToRecycleBin" asp-route-id="@Model.Id"> <i class="fas fa-trash text-white"></i> </a>
+
+    </div>
+
+</div>
